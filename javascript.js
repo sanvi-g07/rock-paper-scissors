@@ -40,11 +40,15 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-console.log(computerSelection);
-console.log(humanSelection);
+function playGame() {
+    for(let i = 0; i < 5; i++) {
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection); 
+        playRound(humanSelection, computerSelection); 
+    }
+}
+
+playGame();
 console.log(computerScore);
 console.log(humanScore);
