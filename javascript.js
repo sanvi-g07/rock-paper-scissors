@@ -3,7 +3,7 @@ let computerScore = 0;
 
 const humanScoreLabel = document.querySelector("#human-score");
 const computerScoreLabel = document.querySelector("#computer-score");
-console.log(human);
+console.log(humanScoreLabel);
 
 function getComputerChoice() {
     let randVal = Math.random();
