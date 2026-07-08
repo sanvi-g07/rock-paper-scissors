@@ -1,6 +1,10 @@
 let humanScore = 0;
 let computerScore = 0;
 
+const humanScoreLabel = document.querySelector("#human-score");
+const computerScoreLabel = document.querySelector("#computer-score");
+console.log(human);
+
 function getComputerChoice() {
     let randVal = Math.random();
 
@@ -38,6 +42,9 @@ function playRound(humanChoice, computerChoice) {
             computerScore++;
         }
     }
+
+    humanScoreLabel.textContent = humanScore;
+    computerScoreLabel.textContent = computerScore;
 }
 
 function playGame() {
@@ -49,6 +56,6 @@ function playGame() {
     }
 }
 
-playGame();
+//playGame();
 console.log(computerScore);
 console.log(humanScore);
