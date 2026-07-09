@@ -3,7 +3,10 @@ let computerScore = 0;
 
 const humanScoreLabel = document.querySelector("#human-score");
 const computerScoreLabel = document.querySelector("#computer-score");
+const playButton = document.querySelector("#play-button");
+
 console.log(humanScoreLabel);
+console.log(playButton);
 
 function getComputerChoice() {
     let randVal = Math.random();
@@ -57,5 +60,9 @@ function playGame() {
 }
 
 //playGame();
+playButton.addEventListener("click", () => {
+    playRound(getHumanChoice(), getComputerChoice());
+});
+
 console.log(computerScore);
 console.log(humanScore);
