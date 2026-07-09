@@ -4,10 +4,9 @@ let computerScore = 0;
 const lastRoundResult = document.querySelector("#lastRoundResult");
 const humanScoreLabel = document.querySelector("#human-score");
 const computerScoreLabel = document.querySelector("#computer-score");
-const playButton = document.querySelector("#play-button");
-
-console.log(humanScoreLabel);
-console.log(playButton);
+const rockButton = document.querySelector("#rock");
+const paperButton = document.querySelector("#paper");
+const scissorsButton = document.querySelector("#scissors");
 
 function getComputerChoice() {
     let randVal = Math.random();
@@ -27,6 +26,7 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
+    // increment score of player that won
     if(humanChoice === "rock") {
         if(computerChoice === "paper") {
             computerScore++;
@@ -47,9 +47,11 @@ function playRound(humanChoice, computerChoice) {
         }
     }
 
+    // update score labels
     humanScoreLabel.textContent = humanScore;
     computerScoreLabel.textContent = computerScore;
 
+    // display the move that user/computer made
     const humanAction = document.createElement("p");
     const computerAction = document.createElement("p");
     humanAction.textContent = "You played " + humanChoice;
@@ -69,8 +71,15 @@ function playGame() {
 }
 
 //playGame();
-playButton.addEventListener("click", () => {
-    playRound(getHumanChoice(), getComputerChoice());
+
+rockButton.addEventListener("click", () => {
+    playRound("rock", getComputerChoice());
+});
+paperButton.addEventListener("click", () => {
+    playRound("paper", getComputerChoice());
+});
+scissorsButton.addEventListener("click", () => {
+    playRound("scissors", getComputerChoice());
 });
 
 console.log(computerScore);
