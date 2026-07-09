@@ -1,6 +1,7 @@
 let humanScore = 0;
 let computerScore = 0;
 
+const lastRoundResult = document.querySelector("#lastRoundResult");
 const humanScoreLabel = document.querySelector("#human-score");
 const computerScoreLabel = document.querySelector("#computer-score");
 const playButton = document.querySelector("#play-button");
@@ -48,6 +49,14 @@ function playRound(humanChoice, computerChoice) {
 
     humanScoreLabel.textContent = humanScore;
     computerScoreLabel.textContent = computerScore;
+
+    const humanAction = document.createElement("p");
+    const computerAction = document.createElement("p");
+    humanAction.textContent = "You played " + humanChoice;
+    computerAction.textContent = "Computer played " + computerChoice;
+    lastRoundResult.replaceChildren();
+    lastRoundResult.appendChild(humanAction);
+    lastRoundResult.appendChild(computerAction);
 }
 
 function playGame() {
