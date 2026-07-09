@@ -2,8 +2,10 @@ let humanScore = 0;
 let computerScore = 0;
 
 const lastRoundResult = document.querySelector("#lastRoundResult");
+
 const humanScoreLabel = document.querySelector("#human-score");
 const computerScoreLabel = document.querySelector("#computer-score");
+
 const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
@@ -59,18 +61,19 @@ function playRound(humanChoice, computerChoice) {
     lastRoundResult.replaceChildren();
     lastRoundResult.appendChild(humanAction);
     lastRoundResult.appendChild(computerAction);
+
+    // check if someone won
+    if(humanScore == 5 || computerScore == 5) {
+        const winnerMessage = document.createElement("h3");
+        if(humanScore == 5) {
+            winnerMessage.textContent = "You win!";
+        } else {
+            winnerMessage.textContent = "Computer wins!";
+        }
+        document.body.replaceChildren();
+        document.body.appendChild(winnerMessage);
+    } 
 }
-
-function playGame() {
-    for(let i = 0; i < 5; i++) {
-        let humanSelection = getHumanChoice();
-        let computerSelection = getComputerChoice();
-
-        playRound(humanSelection, computerSelection); 
-    }
-}
-
-//playGame();
 
 rockButton.addEventListener("click", () => {
     playRound("rock", getComputerChoice());
@@ -82,5 +85,5 @@ scissorsButton.addEventListener("click", () => {
     playRound("scissors", getComputerChoice());
 });
 
-console.log(computerScore);
-console.log(humanScore);
+
+
